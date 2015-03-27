@@ -125,7 +125,15 @@ module Yupi
     end
 
     def create_shared_javascripts
-      copy_file '_javascript.html.erb', 'app/views/application/_javascript.html.erb'
+      copy_file '_javascript.html.erb',
+        'app/views/application/_javascript.html.erb'
+    end
+
+    def create_shared_navigation
+      copy_file '_navigation.html.erb',
+        'app/views/application/_navigation.html.erb'
+      copy_file '_navigation_links.html.erb',
+        'app/views/application/_navigation_links.html.erb'
     end
 
     def create_application_layout
