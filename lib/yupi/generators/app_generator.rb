@@ -9,9 +9,6 @@ module Yupi
     class_option :heroku_flags, type: :string, default: "",
       desc: "Set extra Heroku flags"
 
-    class_option :github, type: :string, aliases: "-G", default: nil,
-      desc: "Create Github repository and add remote origin pointed to repo"
-
     class_option :skip_test_unit, type: :boolean, aliases: "-T", default: true,
       desc: "Skip Test::Unit files"
 
@@ -42,7 +39,6 @@ module Yupi
       invoke :remove_routes_comment_lines
       invoke :setup_git
       invoke :setup_database
-      invoke :create_github_repo
       invoke :setup_segment
       invoke :setup_bundler_audit
       invoke :outro
@@ -161,13 +157,6 @@ module Yupi
         build :set_heroku_remotes
         build :set_heroku_rails_secrets
         build :provide_deploy_script
-      end
-    end
-
-    def create_github_repo
-      if !options[:skip_git] && options[:github]
-        say 'Creating Github repo'
-        build :create_github_repo, options[:github]
       end
     end
 
