@@ -11,16 +11,6 @@ feature 'Build a new project with default configuration' do
     end
   end
 
-  scenario 'staging config is inherited from production' do
-    run_yupi
-
-    staging_file = IO.read("#{project_path}/config/environments/staging.rb")
-    config_stub = "Rails.application.configure do"
-
-    expect(staging_file).to match(/^require_relative "production"/)
-    expect(staging_file).to match(/#{config_stub}/), staging_file
-  end
-
   scenario 'generated .ruby-version is pulled from Yupi .ruby-version' do
     run_yupi
 

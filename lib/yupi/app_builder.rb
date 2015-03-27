@@ -108,20 +108,6 @@ module Yupi
       )
     end
 
-    def setup_staging_environment
-      staging_file = 'config/environments/staging.rb'
-      copy_file 'staging.rb', staging_file
-
-      config = <<-RUBY
-
-Rails.application.configure do
-  # ...
-end
-      RUBY
-
-      append_file staging_file, config
-    end
-
     def setup_secret_token
       template 'secrets.yml', 'config/secrets.yml', force: true
     end
@@ -170,7 +156,7 @@ end
       inject_into_file(
         "Gemfile",
         %{\n\s\sgem "rails_stdout_logging"},
-        after: /group :staging, :production do/
+        after: /group :production do/
       )
     end
 
@@ -226,13 +212,12 @@ end
     end
 
     def configure_simple_form
-      bundle_command "exec rails generate simple_form:install"
+      bundle_command "exec rails generate simple_form:install --bootstrap"
     end
 
     def configure_action_mailer
       action_mailer_host "development", %{"localhost:#{port}"}
       action_mailer_host "test", %{"www.example.com"}
-      action_mailer_host "staging", %{ENV.fetch("HOST")}
       action_mailer_host "production", %{ENV.fetch("HOST")}
     end
 
@@ -300,7 +285,7 @@ end
     end
 
     def create_staging_heroku_app(flags)
-      rack_env = "RACK_ENV=staging RAILS_ENV=staging"
+      rack_env = "RACK_ENV=production RAILS_ENV=production"
       app_name = heroku_app_name_for("staging")
 
       run_heroku "create #{app_name} #{flags}", "staging"
