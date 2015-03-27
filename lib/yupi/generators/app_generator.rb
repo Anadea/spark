@@ -31,13 +31,12 @@ module Yupi
 
     def yupi_customization
       invoke :customize_gemfile
-      invoke :setup_development_environment
-      invoke :setup_test_environment
-      invoke :setup_production_environment
-      invoke :setup_staging_environment
       invoke :setup_secret_token
       invoke :create_yupi_views
       invoke :configure_app
+      invoke :setup_development_environment
+      invoke :setup_test_environment
+      invoke :setup_production_environment
       invoke :setup_stylesheets
       invoke :install_bitters
       invoke :install_refills

@@ -212,7 +212,8 @@ module Yupi
     end
 
     def configure_simple_form
-      bundle_command "exec rails generate simple_form:install --bootstrap"
+      # Here we suppress simple_form warning that simple_form hasn't been configured
+      bundle_command "exec rails generate simple_form:install --bootstrap > /dev/null 2>&1"
     end
 
     def configure_action_mailer
