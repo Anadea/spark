@@ -1,5 +1,3 @@
-# NOT READY YET!!!
-
 # Yupi [![Build Status](https://secure.travis-ci.org/Anadea/yupi.svg?branch=master)](http://travis-ci.org/Anadea/yupi)
 
 Yupi is the base Rails application used at
