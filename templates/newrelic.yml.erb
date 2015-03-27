@@ -1,5 +1,5 @@
 common: &default_settings
-  app_name: "<%= app_name %>"
+  app_name: "<%%= ENV.fetch("APP_NAME", <%= app_name %>) %>"
   audit_log:
     enabled: false
   browser_monitoring:
@@ -27,8 +27,4 @@ test:
   monitor_mode: false
 production:
   <<: *default_settings
-  monitor_mode: true
-staging:
-  <<: *default_settings
-  app_name: "<%= app_name %> (Staging)"
   monitor_mode: true
