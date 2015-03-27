@@ -12,6 +12,7 @@ RSpec.configure do |config|
   config.include YupiTestHelpers
 
   config.before(:all) do
+    drop_dummy_database
     recreate_tmp_directory
   end
 

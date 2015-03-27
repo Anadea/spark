@@ -110,6 +110,7 @@ module Yupi
       build :create_shared_javascripts
       build :create_shared_navigation
       build :create_shared_footer
+      build :create_home_page
       build :create_application_layout
     end
 

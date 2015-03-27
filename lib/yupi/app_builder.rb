@@ -136,6 +136,11 @@ module Yupi
         'app/views/application/_navigation_links.html.erb'
     end
 
+    def create_home_page
+      copy_file 'home.html.erb',
+        'app/views/pages/home.html.erb'
+    end
+
     def create_shared_footer
       copy_file '_footer.html.erb',
         'app/views/application/_footer.html.erb'
@@ -271,7 +276,6 @@ module Yupi
       remove_file '.gitignore'
       copy_file 'yupi_gitignore', '.gitignore'
       [
-        'app/views/pages',
         'spec/lib',
         'spec/controllers',
         'spec/helpers',
