@@ -248,12 +248,10 @@ module Yupi
         'app/assets/stylesheets/application.css.scss'
     end
 
-    def install_bitters
-      run "bitters install --path app/assets/stylesheets"
-    end
-
-    def install_refills
-      run "rails generate refills:import flashes"
+    def setup_javascripts
+      remove_file 'app/assets/javascripts/application.js'
+      copy_file 'application.js',
+        'app/assets/javascripts/application.js'
     end
 
     def gitignore_files
