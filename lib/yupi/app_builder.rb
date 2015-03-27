@@ -136,6 +136,11 @@ module Yupi
         'app/views/application/_navigation_links.html.erb'
     end
 
+    def create_shared_footer
+      copy_file '_footer.html.erb',
+        'app/views/application/_footer.html.erb'
+    end
+
     def create_application_layout
       template 'yupi_layout.html.erb.erb',
         'app/views/layouts/application.html.erb',
@@ -315,6 +320,10 @@ module Yupi
       replace_in_file 'config/routes.rb',
         /Rails\.application\.routes\.draw do.*end/m,
         "Rails.application.routes.draw do\nend"
+    end
+
+    def add_root_route
+      route "root 'high_voltage/pages#show', id: 'home'"
     end
 
     def disable_xml_params

@@ -37,6 +37,7 @@ module Yupi
       invoke :copy_miscellaneous_files
       invoke :customize_error_pages
       invoke :remove_routes_comment_lines
+      invoke :add_root_route
       invoke :setup_git
       invoke :setup_database
       invoke :setup_segment
@@ -109,6 +110,8 @@ module Yupi
       build :create_partials_directory
       build :create_shared_flashes
       build :create_shared_javascripts
+      build :create_shared_navigation
+      build :create_shared_footer
       build :create_application_layout
     end
 
@@ -190,6 +193,10 @@ module Yupi
 
     def remove_routes_comment_lines
       build :remove_routes_comment_lines
+    end
+
+    def add_root_route
+      build :add_root_route
     end
 
     def outro
