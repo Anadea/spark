@@ -31,9 +31,7 @@ module Yupi
       invoke :setup_development_environment
       invoke :setup_test_environment
       invoke :setup_production_environment
-      invoke :setup_stylesheets
-      invoke :install_bitters
-      invoke :install_refills
+      invoke :setup_assets
       invoke :copy_miscellaneous_files
       invoke :customize_error_pages
       invoke :remove_routes_comment_lines
@@ -129,19 +127,10 @@ module Yupi
       build :setup_foreman
     end
 
-    def setup_stylesheets
-      say 'Set up stylesheets'
+    def setup_assets
+      say 'Set up assets'
       build :setup_stylesheets
-    end
-
-    def install_bitters
-      say 'Install Bitters'
-      build :install_bitters
-    end
-
-    def install_refills
-      say "Install Refills"
-      build :install_refills
+      build :setup_javascripts
     end
 
     def setup_git
