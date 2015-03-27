@@ -8,6 +8,7 @@ require (Pathname.new(__FILE__).dirname + '../lib/yupi').expand_path
 Dir['./spec/support/**/*.rb'].each { |file| require file }
 
 RSpec.configure do |config|
+  config.treat_symbols_as_metadata_keys_with_true_values = true
   config.include YupiTestHelpers
 
   config.before(:all) do

@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 feature 'Build a new project with default configuration' do
-  scenario 'specs pass' do
+  scenario 'specs pass', :smoke do
     run_yupi
 
     Dir.chdir(project_path) do
