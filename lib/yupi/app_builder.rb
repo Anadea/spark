@@ -152,14 +152,6 @@ module Yupi
       create_file '.ruby-version', "#{Yupi::RUBY_VERSION}\n"
     end
 
-    def setup_heroku_specific_gems
-      inject_into_file(
-        "Gemfile",
-        %{\n\s\sgem "rails_stdout_logging"},
-        after: /group :production do/
-      )
-    end
-
     def enable_database_cleaner
       copy_file 'database_cleaner_rspec.rb', 'spec/support/database_cleaner.rb'
     end
@@ -285,78 +277,6 @@ module Yupi
       run 'git init'
     end
 
-    def create_staging_heroku_app(flags)
-      rack_env = "RACK_ENV=production RAILS_ENV=production"
-      app_name = heroku_app_name_for("staging")
-
-      run_heroku "create #{app_name} #{flags}", "staging"
-      run_heroku "config:add #{rack_env}", "staging"
-    end
-
-    def create_production_heroku_app(flags)
-      app_name = heroku_app_name_for("production")
-
-      run_heroku "create #{app_name} #{flags}", "production"
-    end
-
-    def create_heroku_apps(flags)
-      create_staging_heroku_app(flags)
-      create_production_heroku_app(flags)
-    end
-
-    def set_heroku_remotes
-      remotes = <<-SHELL
-
-# Set up the staging and production apps.
-#{join_heroku_app('staging')}
-#{join_heroku_app('production')}
-      SHELL
-
-      append_file 'bin/setup', remotes
-    end
-
-    def join_heroku_app(environment)
-      heroku_app_name = heroku_app_name_for(environment)
-      <<-SHELL
-if heroku join --app #{heroku_app_name} &> /dev/null; then
-  git remote add #{environment} git@heroku.com:#{heroku_app_name}.git || true
-  printf 'You are a collaborator on the "#{heroku_app_name}" Heroku app\n'
-else
-  printf 'Ask for access to the "#{heroku_app_name}" Heroku app\n'
-fi
-      SHELL
-    end
-
-    def set_heroku_rails_secrets
-      %w(staging production).each do |environment|
-        run_heroku "config:add SECRET_KEY_BASE=#{generate_secret}", environment
-      end
-    end
-
-    def set_heroku_serve_static_files
-      %w(staging production).each do |environment|
-        run_heroku "config:add RAILS_SERVE_STATIC_FILES=true", environment
-      end
-    end
-
-    def provide_deploy_script
-      copy_file "bin_deploy", "bin/deploy"
-
-      instructions = <<-MARKDOWN
-
-## Deploying
-
-If you have previously run the `./bin/setup` script,
-you can deploy to staging and production with:
-
-    $ ./bin/deploy staging
-    $ ./bin/deploy production
-      MARKDOWN
-
-      append_file "README.md", instructions
-      run "chmod a+x bin/deploy"
-    end
-
     def create_github_repo(repo_name)
       path_addition = override_path_for_tests
       run "#{path_addition} hub create #{repo_name}"
@@ -431,11 +351,6 @@ end
       end
     end
 
-    def run_heroku(command, environment)
-      path_addition = override_path_for_tests
-      run "#{path_addition} heroku #{command} --remote #{environment}"
-    end
-
     def generate_secret
       SecureRandom.hex(64)
     end
@@ -446,10 +361,6 @@ end
 
     def serve_static_files_line
       "config.serve_static_files = ENV['RAILS_SERVE_STATIC_FILES'].present?\n"
-    end
-
-    def heroku_app_name_for(environment)
-      "#{app_name.dasherize}-#{environment}"
     end
   end
 end

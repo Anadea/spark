@@ -6,9 +6,6 @@ module Yupi
     class_option :database, type: :string, aliases: "-d", default: "postgresql",
       desc: "Configure for selected database (options: #{DATABASES.join("/")})"
 
-    class_option :heroku, type: :boolean, aliases: "-H", default: false,
-      desc: "Create staging and production Heroku apps"
-
     class_option :heroku_flags, type: :string, default: "",
       desc: "Set extra Heroku flags"
 
@@ -45,7 +42,6 @@ module Yupi
       invoke :remove_routes_comment_lines
       invoke :setup_git
       invoke :setup_database
-      invoke :create_heroku_apps
       invoke :create_github_repo
       invoke :setup_segment
       invoke :setup_bundler_audit
@@ -55,10 +51,6 @@ module Yupi
     def customize_gemfile
       build :replace_gemfile
       build :set_ruby_to_version_being_used
-
-      if options[:heroku]
-        build :setup_heroku_specific_gems
-      end
 
       bundle_command 'install'
     end
