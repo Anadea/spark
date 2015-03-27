@@ -5,7 +5,8 @@ module YupiTestHelpers
     FileUtils.rm_rf(project_path)
   end
 
-  def create_tmp_directory
+  def recreate_tmp_directory
+    FileUtils.rm_rf(project_path)
     FileUtils.mkdir_p(tmp_path)
   end
 
