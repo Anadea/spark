@@ -116,38 +116,30 @@ module Yupi
       remove_file "config/initializers/wrap_parameters.rb"
     end
 
-    def create_partials_directory
+    def create_partials
       empty_directory 'app/views/application'
-    end
 
-    def create_shared_flashes
-      copy_file '_flashes.html.erb', 'app/views/application/_flashes.html.erb'
-    end
-
-    def create_shared_javascripts
-      copy_file '_javascript.html.erb',
+      copy_file 'views/application/_flashes.html.erb',
+        'app/views/application/_flashes.html.erb'
+      copy_file 'views/application/_javascript.html.erb',
         'app/views/application/_javascript.html.erb'
-    end
-
-    def create_shared_navigation
-      copy_file '_navigation.html.erb',
+      copy_file 'views/application/_navigation.html.erb',
         'app/views/application/_navigation.html.erb'
-      copy_file '_navigation_links.html.erb',
+      copy_file 'views/application/_navigation_links.html.erb',
         'app/views/application/_navigation_links.html.erb'
-    end
-
-    def create_home_page
-      copy_file 'home.html.erb',
-        'app/views/pages/home.html.erb'
-    end
-
-    def create_shared_footer
-      copy_file '_footer.html.erb',
+      copy_file 'views/application/_analytics.html.erb',
+        'app/views/application/_analytics.html.erb'
+      copy_file 'views/application/_footer.html.erb',
         'app/views/application/_footer.html.erb'
     end
 
+    def create_home_page
+      copy_file 'views/pages/home.html.erb',
+        'app/views/pages/home.html.erb'
+    end
+
     def create_application_layout
-      template 'yupi_layout.html.erb.erb',
+      template 'views/layouts/application.html.erb.erb',
         'app/views/layouts/application.html.erb',
         force: true
     end
@@ -290,11 +282,6 @@ module Yupi
 
     def init_git
       run 'git init'
-    end
-
-    def setup_segment
-      copy_file '_analytics.html.erb',
-        'app/views/application/_analytics.html.erb'
     end
 
     def setup_bundler_audit

@@ -38,7 +38,6 @@ module Yupi
       invoke :add_root_route
       invoke :setup_git
       invoke :setup_database
-      invoke :setup_segment
       invoke :setup_bundler_audit
       invoke :outro
     end
@@ -105,13 +104,9 @@ module Yupi
 
     def create_yupi_views
       say 'Creating yupi views'
-      build :create_partials_directory
-      build :create_shared_flashes
-      build :create_shared_javascripts
-      build :create_shared_navigation
-      build :create_shared_footer
-      build :create_home_page
+      build :create_partials
       build :create_application_layout
+      build :create_home_page
     end
 
     def configure_app
@@ -151,11 +146,6 @@ module Yupi
         build :set_heroku_rails_secrets
         build :provide_deploy_script
       end
-    end
-
-    def setup_segment
-      say 'Setting up Segment'
-      build :setup_segment
     end
 
     def setup_gitignore
