@@ -39,6 +39,7 @@ module Yupi
       invoke :setup_git
       invoke :setup_database
       invoke :setup_bundler_audit
+      invoke :run_bin_setup
       invoke :outro
     end
 
@@ -176,6 +177,10 @@ module Yupi
 
     def add_root_route
       build :add_root_route
+    end
+
+    def run_bin_setup
+      build :run_bin_setup
     end
 
     def outro

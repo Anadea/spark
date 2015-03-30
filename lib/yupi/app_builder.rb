@@ -206,12 +206,12 @@ module Yupi
     end
 
     def configure_rack_timeout
-      copy_file 'initializers/rack_timeout.rb',
+      copy_file 'config/initializers/rack_timeout.rb',
         'config/initializers/rack_timeout.rb'
     end
 
     def configure_mail_interceptor
-      copy_file 'initializers/mail_interceptor.rb',
+      copy_file 'config/initializers/mail_interceptor.rb',
         'config/initializers/mail_interceptor.rb'
     end
 
@@ -251,8 +251,11 @@ module Yupi
     end
 
     def setup_foreman
-      copy_file 'dot_sample.env', '.sample.env'
       copy_file 'Procfile', 'Procfile'
+    end
+
+    def setup_figaro
+      copy_file 'config/application.yml.sample', 'config/application.yml.sample'
     end
 
     def setup_stylesheets
@@ -293,8 +296,8 @@ module Yupi
     end
 
     def copy_miscellaneous_files
-      copy_file "initializers/errors.rb", "config/initializers/errors.rb"
-      copy_file "initializers/json_encoding.rb", "config/initializers/json_encoding.rb"
+      copy_file "config/initializers/errors.rb", "config/initializers/errors.rb"
+      copy_file "config/initializers/json_encoding.rb", "config/initializers/json_encoding.rb"
     end
 
     def customize_error_pages
@@ -321,7 +324,8 @@ module Yupi
     end
 
     def disable_xml_params
-      copy_file 'initializers/disable_xml_params.rb', 'config/initializers/disable_xml_params.rb'
+      copy_file 'config/initializers/disable_xml_params.rb',
+        'config/initializers/disable_xml_params.rb'
     end
 
     def setup_default_rake_task
@@ -338,6 +342,10 @@ if defined? RSpec
 end
         EOS
       end
+    end
+
+    def run_bin_setup
+      bundle_command "exec ./bin/setup"
     end
 
     private
