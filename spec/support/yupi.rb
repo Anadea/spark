@@ -16,6 +16,7 @@ module YupiTestHelpers
         ENV['TESTING'] = '1'
 
         %x(#{yupi_bin} #{APP_NAME} #{arguments})
+        fail 'Application generation failed' unless $?.exitstatus == 0
       end
     end
   end
