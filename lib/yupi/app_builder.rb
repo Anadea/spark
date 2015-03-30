@@ -167,7 +167,12 @@ module Yupi
     end
 
     def configure_spec_support_features
+      empty_directory_with_keep_file 'spec/lib'
       empty_directory_with_keep_file 'spec/features'
+
+      empty_directory_with_keep_file 'spec/support/matchers'
+      empty_directory_with_keep_file 'spec/support/mixins'
+      empty_directory_with_keep_file 'spec/support/shared_examples'
       empty_directory_with_keep_file 'spec/support/features'
     end
 
@@ -273,17 +278,6 @@ module Yupi
     def gitignore_files
       remove_file '.gitignore'
       copy_file 'dot_gitignore', '.gitignore'
-      [
-        'spec/lib',
-        'spec/controllers',
-        'spec/helpers',
-        'spec/support/matchers',
-        'spec/support/mixins',
-        'spec/support/shared_examples'
-      ].each do |dir|
-        run "mkdir #{dir}"
-        run "touch #{dir}/.keep"
-      end
     end
 
     def init_git
