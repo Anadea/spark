@@ -206,7 +206,7 @@ module Yupi
     end
 
     def configure_rack_timeout
-      copy_file 'rack_timeout.rb', 'config/initializers/rack_timeout.rb'
+      copy_file 'initializers/rack_timeout.rb', 'config/initializers/rack_timeout.rb'
     end
 
     def configure_simple_form
@@ -286,8 +286,8 @@ module Yupi
     end
 
     def copy_miscellaneous_files
-      copy_file "errors.rb", "config/initializers/errors.rb"
-      copy_file "json_encoding.rb", "config/initializers/json_encoding.rb"
+      copy_file "initializers/errors.rb", "config/initializers/errors.rb"
+      copy_file "initializers/json_encoding.rb", "config/initializers/json_encoding.rb"
     end
 
     def customize_error_pages
@@ -314,7 +314,7 @@ module Yupi
     end
 
     def disable_xml_params
-      copy_file 'disable_xml_params.rb', 'config/initializers/disable_xml_params.rb'
+      copy_file 'initializers/disable_xml_params.rb', 'config/initializers/disable_xml_params.rb'
     end
 
     def setup_default_rake_task
