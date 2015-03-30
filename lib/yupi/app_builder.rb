@@ -245,8 +245,9 @@ module Yupi
       generate 'rspec:install'
     end
 
-    def configure_unicorn
-      copy_file 'config/unicorn.rb', 'config/unicorn.rb'
+    def configure_puma
+      bundle_command 'binstub puma'
+      remove_file 'bin/pumactl'
     end
 
     def setup_foreman
