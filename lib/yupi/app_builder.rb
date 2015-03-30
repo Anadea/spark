@@ -59,11 +59,11 @@ module Yupi
     end
 
     def configure_newrelic
-      template 'newrelic.yml.erb', 'config/newrelic.yml'
+      template 'config/newrelic.yml.erb', 'config/newrelic.yml'
     end
 
     def configure_smtp
-      copy_file 'smtp.rb', 'config/smtp.rb'
+      copy_file 'config/smtp.rb', 'config/smtp.rb'
 
       prepend_file 'config/environments/production.rb',
         %{require Rails.root.join("config/smtp")\n}
@@ -99,7 +99,7 @@ module Yupi
 
       replace_in_file 'config/initializers/assets.rb',
         "config.assets.version = '1.0'",
-        'config.assets.version = (ENV["ASSETS_VERSION"] || "1.0")'
+        'config.assets.version = ENV.fetch("ASSETS_VERSION", "1.0")'
 
       inject_into_file(
         "config/environments/production.rb",
@@ -109,7 +109,7 @@ module Yupi
     end
 
     def setup_secret_token
-      template 'secrets.yml', 'config/secrets.yml', force: true
+      template 'config/rails_secrets.yml', 'config/secrets.yml', force: true
     end
 
     def disallow_wrapping_parameters
