@@ -178,10 +178,6 @@ module Yupi
       copy_file "spec_helper.rb", "spec/spec_helper.rb"
     end
 
-    def configure_travis
-      template 'travis.yml.erb', '.travis.yml'
-    end
-
     def configure_i18n_for_test_environment
       copy_file "i18n.rb", "spec/support/i18n.rb"
     end
