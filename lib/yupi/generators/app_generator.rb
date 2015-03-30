@@ -21,6 +21,7 @@ module Yupi
     def finish_template
       invoke :yupi_customization
       super
+      invoke :run_bin_setup
     end
 
     def yupi_customization
@@ -39,7 +40,6 @@ module Yupi
       invoke :setup_git
       invoke :setup_database
       invoke :setup_bundler_audit
-      invoke :run_bin_setup
       invoke :outro
     end
 
@@ -111,6 +111,7 @@ module Yupi
 
     def configure_app
       say 'Configuring app'
+      build :setup_figaro
       build :configure_action_mailer
       build :configure_active_job
       build :configure_time_formats

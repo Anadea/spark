@@ -28,7 +28,7 @@ module Yupi
     end
 
     def provide_setup_script
-      template "bin/setup.erb", "bin/setup", port_number: port, force: true
+      template "bin/setup.erb", "bin/setup", force: true
       run "chmod a+x bin/setup"
     end
 
@@ -221,7 +221,7 @@ module Yupi
     end
 
     def configure_action_mailer
-      action_mailer_host "development", %{"localhost:#{port}"}
+      action_mailer_host "development", %{"localhost:3000"}
       action_mailer_host "test", %{"www.example.com"}
       action_mailer_host "production", %{ENV.fetch("HOST")}
     end
@@ -365,10 +365,6 @@ end
 
     def generate_secret
       SecureRandom.hex(64)
-    end
-
-    def port
-      @port ||= [3000, 4000, 5000, 7000, 8000, 9000].sample
     end
 
     def serve_static_files_line
