@@ -28,7 +28,7 @@ module Yupi
     end
 
     def provide_setup_script
-      template "bin_setup.erb", "bin/setup", port_number: port, force: true
+      template "bin/setup.erb", "bin/setup", port_number: port, force: true
       run "chmod a+x bin/setup"
     end
 
@@ -55,7 +55,7 @@ module Yupi
     end
 
     def set_up_factory_girl_for_rspec
-      copy_file 'factory_girl_rspec.rb', 'spec/support/factory_girl.rb'
+      copy_file 'spec/support/factory_girl_rspec.rb', 'spec/support/factory_girl.rb'
     end
 
     def configure_newrelic
@@ -145,7 +145,7 @@ module Yupi
     end
 
     def use_postgres_config_template
-      template 'postgresql_database.yml.erb', 'config/database.yml',
+      template 'config/postgresql_database.yml.erb', 'config/database.yml',
         force: true
     end
 
@@ -163,7 +163,7 @@ module Yupi
     end
 
     def enable_database_cleaner
-      copy_file 'database_cleaner_rspec.rb', 'spec/support/database_cleaner.rb'
+      copy_file 'spec/support/database_cleaner_rspec.rb', 'spec/support/database_cleaner.rb'
     end
 
     def configure_spec_support_features
@@ -174,12 +174,12 @@ module Yupi
     def configure_rspec
       remove_file "spec/rails_helper.rb"
       remove_file "spec/spec_helper.rb"
-      copy_file "rails_helper.rb", "spec/rails_helper.rb"
-      copy_file "spec_helper.rb", "spec/spec_helper.rb"
+      copy_file "spec/rails_helper.rb", "spec/rails_helper.rb"
+      copy_file "spec/spec_helper.rb", "spec/spec_helper.rb"
     end
 
     def configure_i18n_for_test_environment
-      copy_file "i18n.rb", "spec/support/i18n.rb"
+      copy_file "spec/support/i18n.rb", "spec/support/i18n.rb"
     end
 
     def configure_i18n_for_missing_translations
@@ -197,7 +197,7 @@ module Yupi
     end
 
     def configure_action_mailer_in_specs
-      copy_file 'action_mailer.rb', 'spec/support/action_mailer.rb'
+      copy_file 'spec/support/action_mailer.rb', 'spec/support/action_mailer.rb'
     end
 
     def configure_time_formats
@@ -240,7 +240,7 @@ module Yupi
     end
 
     def configure_unicorn
-      copy_file 'unicorn.rb', 'config/unicorn.rb'
+      copy_file 'config/unicorn.rb', 'config/unicorn.rb'
     end
 
     def setup_foreman
