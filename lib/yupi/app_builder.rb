@@ -244,7 +244,7 @@ module Yupi
     end
 
     def setup_foreman
-      copy_file 'sample.env', '.sample.env'
+      copy_file 'dot_sample.env', '.sample.env'
       copy_file 'Procfile', 'Procfile'
     end
 
@@ -262,7 +262,7 @@ module Yupi
 
     def gitignore_files
       remove_file '.gitignore'
-      copy_file 'yupi_gitignore', '.gitignore'
+      copy_file 'dot_gitignore', '.gitignore'
       [
         'spec/lib',
         'spec/controllers',
