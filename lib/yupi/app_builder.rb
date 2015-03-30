@@ -250,13 +250,13 @@ module Yupi
 
     def setup_stylesheets
       remove_file 'app/assets/stylesheets/application.css'
-      copy_file 'application.css.scss',
+      copy_file 'assets/application.css.scss',
         'app/assets/stylesheets/application.css.scss'
     end
 
     def setup_javascripts
       remove_file 'app/assets/javascripts/application.js'
-      copy_file 'application.js',
+      copy_file 'assets/application.js',
         'app/assets/javascripts/application.js'
     end
 
