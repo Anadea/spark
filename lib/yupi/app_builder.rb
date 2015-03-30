@@ -206,7 +206,13 @@ module Yupi
     end
 
     def configure_rack_timeout
-      copy_file 'initializers/rack_timeout.rb', 'config/initializers/rack_timeout.rb'
+      copy_file 'initializers/rack_timeout.rb',
+        'config/initializers/rack_timeout.rb'
+    end
+
+    def configure_mail_interceptor
+      copy_file 'initializers/mail_interceptor.rb',
+        'config/initializers/mail_interceptor.rb'
     end
 
     def configure_simple_form
