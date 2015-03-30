@@ -27,7 +27,6 @@ to build something amazing; don't use it if you like missing deadlines.
   s.test_files = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.version = Yupi::VERSION
 
-  s.add_dependency 'bitters', '~> 1.0.0'
   s.add_dependency 'bundler', '~> 1.3'
   s.add_dependency 'rails', Yupi::RAILS_VERSION
 
