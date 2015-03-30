@@ -33,7 +33,7 @@ module Yupi
     end
 
     def provide_dev_prime_task
-      copy_file 'development_seeds.rb', 'lib/tasks/development_seeds.rake'
+      copy_file 'tasks/development_seeds.rake', 'lib/tasks/development_seeds.rake'
     end
 
     def configure_generators
@@ -189,7 +189,7 @@ module Yupi
 
     def configure_i18n_tasks
       run "cp $(i18n-tasks gem-path)/templates/rspec/i18n_spec.rb spec/"
-      copy_file "config_i18n_tasks.yml", "config/i18n-tasks.yml"
+      copy_file "config/i18n_tasks.yml", "config/i18n-tasks.yml"
     end
 
     def configure_background_jobs_for_rspec
@@ -202,7 +202,7 @@ module Yupi
 
     def configure_time_formats
       remove_file "config/locales/en.yml"
-      template "config_locales_en.yml.erb", "config/locales/en.yml"
+      template "config/locales_en.yml.erb", "config/locales/en.yml"
     end
 
     def configure_rack_timeout
@@ -281,7 +281,7 @@ module Yupi
     end
 
     def setup_bundler_audit
-      copy_file "bundler_audit.rake", "lib/tasks/bundler_audit.rake"
+      copy_file "tasks/bundler_audit.rake", "lib/tasks/bundler_audit.rake"
       append_file "Rakefile", %{\ntask default: "bundler:audit"\n}
     end
 
