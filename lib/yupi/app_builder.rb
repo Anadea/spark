@@ -68,16 +68,14 @@ module Yupi
       template 'config/newrelic.yml.erb', 'config/newrelic.yml'
     end
 
-    def configure_smtp
-      copy_file 'config/smtp.rb', 'config/smtp.rb'
-
-      prepend_file 'config/environments/production.rb',
-        %{require Rails.root.join("config/smtp")\n}
-
+    def configure_mailsocio
       config = <<-RUBY
 
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = SMTP_SETTINGS
+  config.action_mailer.delivery_method = :mailsocio
+  config.action_mailer.smtp_settings = {
+    account_id: ENV.fetch("MAILSOCIO_ACCOUNT_ID"),
+    api_key: ENV.fetch("MAILSOCIO_API_KEY")
+  }
       RUBY
 
       inject_into_file 'config/environments/production.rb', config,
@@ -345,7 +343,7 @@ end
     end
 
     def run_bin_setup
-      bundle_command "exec ./bin/setup"
+      run "./bin/setup"
     end
 
     private
