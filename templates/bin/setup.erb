@@ -18,6 +18,10 @@ fi
 # Set up database and add any development seed data
 bundle exec rake db:setup dev:prime
 
+# Get mailcatcher up and running
+gem list -i mailcatcher || gem install mailcatcher
+nc -z localhost 1025 || mailcatcher
+
 # Only if this isn't CI
 # if [ -z "$CI" ]; then
 # fi

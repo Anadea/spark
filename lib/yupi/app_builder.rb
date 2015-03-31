@@ -12,9 +12,15 @@ module Yupi
     end
 
     def set_test_delivery_method
+      config = <<-RUBY
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = { :address => "localhost", :port => 1025 }
+      RUBY
+
       inject_into_file(
         "config/environments/development.rb",
-        "\n  config.action_mailer.delivery_method = :test",
+        config,
         after: "config.action_mailer.raise_delivery_errors = true",
       )
     end
