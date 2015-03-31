@@ -8,8 +8,18 @@ require (Pathname.new(__FILE__).dirname + '../lib/yupi').expand_path
 Dir['./spec/support/**/*.rb'].each { |file| require file }
 
 RSpec.configure do |config|
-  config.treat_symbols_as_metadata_keys_with_true_values = true
   config.include YupiTestHelpers
+
+  config.filter_run :focus
+  config.run_all_when_everything_filtered = true
+  config.disable_monkey_patching!
+
+  if config.files_to_run.one?
+    config.default_formatter = 'doc'
+  end
+
+  config.order = :random
+  Kernel.srand config.seed
 
   config.before(:all) do
     drop_dummy_database
