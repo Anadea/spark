@@ -2,3 +2,4 @@
 *.swp
 /.bundle
 /tmp
+/Gemfile.lock
