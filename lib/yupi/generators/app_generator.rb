@@ -33,6 +33,7 @@ module Yupi
       invoke :setup_test_environment
       invoke :setup_production_environment
       invoke :setup_assets
+      invoke :configure_mail_interceptor
       invoke :copy_miscellaneous_files
       invoke :customize_error_pages
       invoke :remove_routes_comment_lines
