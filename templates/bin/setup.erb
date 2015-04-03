@@ -19,11 +19,11 @@ fi
 bundle exec rake db:setup dev:prime
 
 # Get mailcatcher up and running
-gem list -i mailcatcher || gem install mailcatcher
+gem list -i mailcatcher || gem install mailcatcher --no-ri --no-rdoc
 nc -z localhost 1025 || mailcatcher
 
 # Install foreman
-gem list -i foreman || gem install foreman
+gem list -i foreman || gem install foreman --no-ri --no-rdoc
 
 # Only if this isn't CI
 # if [ -z "$CI" ]; then
