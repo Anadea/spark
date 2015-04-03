@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    yupi (0.1.0)
+    yupi (0.1.1)
       bundler (~> 1.3)
       rails (= 4.2.1)
 
