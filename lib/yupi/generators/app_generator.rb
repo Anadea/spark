@@ -130,6 +130,11 @@ module Yupi
       build :setup_stylesheets
       build :setup_javascripts
     end
+    
+    def configure_mail_interceptor
+      say 'Configure mail interceptor'
+      build :configure_mail_interceptor
+    end
 
     def setup_git
       if !options[:skip_git]
