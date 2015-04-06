@@ -123,29 +123,29 @@ module Yupi
     def create_partials
       empty_directory 'app/views/application'
 
-      copy_file 'views/application/_flashes.html.erb',
-        'app/views/application/_flashes.html.erb'
-      copy_file 'views/application/_javascript.html.erb',
-        'app/views/application/_javascript.html.erb'
-      copy_file 'views/application/_navigation.html.erb',
-        'app/views/application/_navigation.html.erb'
-      copy_file 'views/application/_navigation_links.html.erb',
-        'app/views/application/_navigation_links.html.erb'
-      copy_file 'views/application/_analytics.html.erb',
-        'app/views/application/_analytics.html.erb'
-      copy_file 'views/application/_footer.html.erb',
-        'app/views/application/_footer.html.erb'
+      copy_file 'views/application/_flashes.html.haml',
+        'app/views/application/_flashes.html.haml'
+      copy_file 'views/application/_javascript.html.haml',
+        'app/views/application/_javascript.html.haml'
+      copy_file 'views/application/_navigation.html.haml',
+        'app/views/application/_navigation.html.haml'
+      copy_file 'views/application/_navigation_links.html.haml',
+        'app/views/application/_navigation_links.html.haml'
+      copy_file 'views/application/_analytics.html.haml',
+        'app/views/application/_analytics.html.haml'
+      copy_file 'views/application/_footer.html.haml',
+        'app/views/application/_footer.html.haml'
     end
 
     def create_home_page
-      copy_file 'views/pages/home.html.erb',
-        'app/views/pages/home.html.erb'
+      copy_file 'views/pages/home.html.haml',
+        'app/views/pages/home.html.haml'
     end
 
     def create_application_layout
-      template 'views/layouts/application.html.erb.erb',
-        'app/views/layouts/application.html.erb',
-        force: true
+      remove_file 'app/views/layouts/application.html.erb'
+      copy_file 'views/layouts/application.html.haml',
+        'app/views/layouts/application.html.haml'
     end
 
     def use_postgres_config_template

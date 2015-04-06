@@ -1,0 +1,23 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "NOODP", :name => "ROBOTS"}/
+    %meta{:content => "initial-scale=1", :name => "viewport"}/
+    %title= title
+    = stylesheet_link_tag :application, media: "all"
+    = csrf_meta_tags
+  %body
+    #wrap
+      %header
+        = render 'navigation'
+      .container
+        .row
+          .col-sm-6.col-sm-offset-3.text-center
+            = render 'flashes'
+        .row
+          .col-sm-12
+            = yield
+    = render 'footer'
+    = render 'javascript'
