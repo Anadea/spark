@@ -30,6 +30,6 @@ to build something amazing; don't use it if you like missing deadlines.
   s.add_dependency 'bundler', '~> 1.3'
   s.add_dependency 'rails', Yupi::RAILS_VERSION
 
-  s.add_development_dependency 'rspec', '~> 2.0'
+  s.add_development_dependency 'rspec', '>= 3.2.0', '<4'
   s.add_development_dependency 'capybara', '~> 2.2', '>= 2.2.0'
 end
