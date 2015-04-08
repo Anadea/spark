@@ -49,13 +49,13 @@ RSpec.feature 'Build a new project with default configuration' do
     )
   end
 
-  scenario 'records pageviews through Segment if ENV variable set' do
+  scenario 'records pageviews through Google Analytics if ENV variable set' do
     run_yupi
 
     expect(analytics_partial).
-      to include(%{<% if ENV["SEGMENT_KEY"] %>})
+      to include(%{- if ENV.key?("GOOGLE_ANALYTICS_KEY")})
     expect(analytics_partial).
-      to include(%{window.analytics.load("<%= ENV["SEGMENT_KEY"] %>");})
+      to include(%{_gaq.push(['_setAccount', '\#{ENV["GOOGLE_ANALYTICS_KEY"]}']);})
   end
 
   scenario "raises on unpermitted parameters in all environments" do
