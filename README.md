@@ -92,6 +92,8 @@ Tweaks and goodies:
 * `Procfile` for both development and deploy to Heroku and similar.
 * Configure email delivery to mailcatcher in development, install and launch
   [Mailcatcher][mailcatcher].
+* Raise on unpermitted parameters in all environments.
+* Raise on missing translations in development and test.
 
 [setup]: http://robots.thoughtbot.com/bin-setup
 [compress]: http://robots.thoughtbot.com/content-compression-with-rack-deflater/

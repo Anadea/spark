@@ -107,12 +107,12 @@ RSpec.feature 'Build a new project with default configuration' do
     expect(File).to exist("#{project_path}/config/initializers/simple_form.rb")
   end
 
-  scenario "config :test email delivery method for development" do
+  scenario "config :smtp email delivery method for development" do
     run_yupi
 
     dev_env_file = IO.read("#{project_path}/config/environments/development.rb")
     expect(dev_env_file).
-      to match(/^ +config.action_mailer.delivery_method = :test$/)
+      to match(/^ +config.action_mailer.delivery_method = :smtp$/)
   end
 
   scenario "config active job queue adapter" do
@@ -130,6 +130,6 @@ RSpec.feature 'Build a new project with default configuration' do
   end
 
   def analytics_partial
-    IO.read("#{project_path}/app/views/application/_analytics.html.erb")
+    IO.read("#{project_path}/app/views/application/_analytics.html.haml")
   end
 end
