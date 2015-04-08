@@ -94,6 +94,8 @@ Tweaks and goodies:
   [Mailcatcher][mailcatcher].
 * Raise on unpermitted parameters in all environments.
 * Raise on missing translations in development and test.
+* Add `.ruby-version` for Rbenv and other Ruby version managers.
+* Remove comment blocks from `config/routes.rb`.
 
 [setup]: http://robots.thoughtbot.com/bin-setup
 [compress]: http://robots.thoughtbot.com/content-compression-with-rack-deflater/
