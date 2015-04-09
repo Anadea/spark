@@ -31,7 +31,6 @@ Application gems:
 * [High Voltage](https://github.com/thoughtbot/high_voltage) for static pages.
 * [Jquery Rails](https://github.com/rails/jquery-rails) for JQuery as a Rails
   default.
-* [New Relic RPM](https://github.com/newrelic/rpm) for monitoring performance.
 * [Postgres](https://github.com/ged/ruby-pg) for access to Postgresql database.
 * [Puma](https://github.com/puma/puma) as an application server for both
   development and production.

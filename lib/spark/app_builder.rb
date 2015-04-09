@@ -64,10 +64,6 @@ module Spark
       copy_file 'spec/support/factory_girl_rspec.rb', 'spec/support/factory_girl.rb'
     end
 
-    def configure_newrelic
-      template 'config/newrelic.yml.erb', 'config/newrelic.yml'
-    end
-
     def configure_mailsocio
       config = <<-RUBY
 

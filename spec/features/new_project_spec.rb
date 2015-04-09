@@ -39,16 +39,6 @@ RSpec.feature 'Build a new project with default configuration' do
     expect(File).to exist("#{project_path}/spec/support/i18n.rb")
   end
 
-  scenario 'newrelic.yml reads NewRelic license from env' do
-    run_generator
-
-    newrelic_file = IO.read("#{project_path}/config/newrelic.yml")
-
-    expect(newrelic_file).to match(
-      /license_key: "<%= ENV\["NEW_RELIC_LICENSE_KEY"\] %>"/
-    )
-  end
-
   scenario 'records pageviews through Google Analytics if ENV variable set' do
     run_generator
 
