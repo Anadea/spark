@@ -1,19 +1,19 @@
-# Yupi [![Build Status](https://secure.travis-ci.org/Anadea/yupi.svg?branch=master)](http://travis-ci.org/Anadea/yupi)
+# Spark [![Build Status](https://secure.travis-ci.org/Anadea/spark.svg?branch=master)](http://travis-ci.org/Anadea/spark)
 
 Yupi is the base Rails application used at
 [anadea](http://anadea.info).
 
-  ![Yupi juice](http://www.dismarex.com.ec/pro/img/YUPI.jpg)
+  ![Spark](https://dl.dropboxusercontent.com/u/8790751/spark.jpg)
 
 ## Installation
 
-First install the yupi gem:
+First install the gem:
 
-    gem install yupi
+    gem install spark
 
 Then run:
 
-    yupi projectname
+    spark projectname
 
 This will create a Rails app in `projectname` using the latest version of Rails.
 
@@ -106,10 +106,10 @@ Tweaks and goodies:
 
 ## Dependencies
 
-Yupi requires the latest version of Ruby.
+Spark requires the latest version of Ruby.
 
-Some gems included in Yupi have native extensions. You should have GCC
-installed on your machine before generating an app with Yupi.
+Some gems included in Spark have native extensions. You should have GCC
+installed on your machine before generating an app with Spark.
 
 Use [OS X GCC Installer](https://github.com/kennethreitz/osx-gcc-installer/) for
 Snow Leopard (OS X 10.6).
@@ -127,11 +127,11 @@ PostgreSQL needs to be installed and running for the `db:create` rake task.
 ## Issues
 
 If you have problems, please create a
-[GitHub Issue](https://github.com/Anadea/yupi/issues).
+[GitHub Issue](https://github.com/Anadea/spark/issues).
 
 ## License
 
-Yupi is Copyright © 2008-2015 Anadea.
+Spark is Copyright © 2015 Anadea.
 It is free software,
 and may be redistributed under the terms specified in the [LICENSE] file.
 
@@ -145,7 +145,7 @@ To [suspenders](https://github.com/thoughtbot/suspenders).
 
 ![anadea](https://avatars2.githubusercontent.com/u/4539766?v=3&s=200)
 
-Yupi is maintained and funded by Anadea, inc.
+Spark is maintained and funded by Anadea, inc.
 The names and logos for Anadea are trademarks of Anadea, inc.
 
 We are [available for hire][hire].
