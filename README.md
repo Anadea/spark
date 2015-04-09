@@ -9,7 +9,7 @@ Spark is the base Rails application used at
 
 First install the gem:
 
-    gem install spark
+    gem install anadea-spark
 
 Then run:
 
