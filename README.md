@@ -1,7 +1,7 @@
 # Spark
 
 Yupi is the base Rails application used at
-[anadea](http://anadea.info).
+[Anadea](http://anadea.info).
 
   ![Spark](https://dl.dropboxusercontent.com/u/8790751/spark.jpg)
 
