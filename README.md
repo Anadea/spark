@@ -1,4 +1,4 @@
-# Spark [![Build Status](https://secure.travis-ci.org/Anadea/spark.svg?branch=master)](http://travis-ci.org/Anadea/spark)
+# Spark
 
 Yupi is the base Rails application used at
 [anadea](http://anadea.info).
