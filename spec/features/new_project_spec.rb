@@ -2,7 +2,7 @@ require 'spec_helper'
 
 RSpec.feature 'Build a new project with default configuration' do
   scenario 'specs pass', :smoke do
-    run_yupi
+    run_generator
 
     Dir.chdir(project_path) do
       Bundler.with_clean_env do
@@ -11,8 +11,8 @@ RSpec.feature 'Build a new project with default configuration' do
     end
   end
 
-  scenario 'generated .ruby-version is pulled from Yupi .ruby-version' do
-    run_yupi
+  scenario 'generated .ruby-version is pulled from gem .ruby-version' do
+    run_generator
 
     ruby_version_file = IO.read("#{project_path}/.ruby-version")
 
@@ -20,7 +20,7 @@ RSpec.feature 'Build a new project with default configuration' do
   end
 
   scenario 'secrets.yml reads secret from env' do
-    run_yupi
+    run_generator
 
     secrets_file = IO.read("#{project_path}/config/secrets.yml")
 
@@ -28,19 +28,19 @@ RSpec.feature 'Build a new project with default configuration' do
   end
 
   scenario 'action mailer support file is added' do
-    run_yupi
+    run_generator
 
     expect(File).to exist("#{project_path}/spec/support/action_mailer.rb")
   end
 
   scenario "i18n support file is added" do
-    run_yupi
+    run_generator
 
     expect(File).to exist("#{project_path}/spec/support/i18n.rb")
   end
 
   scenario 'newrelic.yml reads NewRelic license from env' do
-    run_yupi
+    run_generator
 
     newrelic_file = IO.read("#{project_path}/config/newrelic.yml")
 
@@ -50,7 +50,7 @@ RSpec.feature 'Build a new project with default configuration' do
   end
 
   scenario 'records pageviews through Google Analytics if ENV variable set' do
-    run_yupi
+    run_generator
 
     expect(analytics_partial).
       to include(%{- if ENV.key?("GOOGLE_ANALYTICS_KEY")})
@@ -59,7 +59,7 @@ RSpec.feature 'Build a new project with default configuration' do
   end
 
   scenario "raises on unpermitted parameters in all environments" do
-    run_yupi
+    run_generator
 
     result = IO.read("#{project_path}/config/application.rb")
 
@@ -69,7 +69,7 @@ RSpec.feature 'Build a new project with default configuration' do
   end
 
   scenario "raises on missing translations in development and test" do
-    run_yupi
+    run_generator
 
     %w[development test].each do |environment|
       environment_file =
@@ -81,34 +81,34 @@ RSpec.feature 'Build a new project with default configuration' do
   end
 
   scenario "specs for missing or unused translations" do
-    run_yupi
+    run_generator
 
     expect(File).to exist("#{project_path}/spec/i18n_spec.rb")
   end
 
   scenario "config file for i18n tasks" do
-    run_yupi
+    run_generator
 
     expect(File).to exist("#{project_path}/config/i18n-tasks.yml")
   end
 
   scenario "generated en.yml is evaluated" do
-    run_yupi
+    run_generator
 
     locales_en_file = IO.read("#{project_path}/config/locales/en.yml")
-    app_name = YupiTestHelpers::APP_NAME
+    app_name = TestHelpers::APP_NAME
 
     expect(locales_en_file).to match(/application: #{app_name.humanize}/)
   end
 
   scenario "config simple_form" do
-    run_yupi
+    run_generator
 
     expect(File).to exist("#{project_path}/config/initializers/simple_form.rb")
   end
 
   scenario "config :smtp email delivery method for development" do
-    run_yupi
+    run_generator
 
     dev_env_file = IO.read("#{project_path}/config/environments/development.rb")
     expect(dev_env_file).
@@ -116,7 +116,7 @@ RSpec.feature 'Build a new project with default configuration' do
   end
 
   scenario "config active job queue adapter" do
-    run_yupi
+    run_generator
 
     application_config = IO.read("#{project_path}/config/application.rb")
     test_config = IO.read("#{project_path}/config/environments/test.rb")

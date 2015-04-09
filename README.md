@@ -1,6 +1,6 @@
 # Spark
 
-Yupi is the base Rails application used at
+Spark is the base Rails application used at
 [Anadea](http://anadea.info).
 
   ![Spark](https://dl.dropboxusercontent.com/u/8790751/spark.jpg)

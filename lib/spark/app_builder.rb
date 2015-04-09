@@ -1,6 +1,6 @@
-module Yupi
+module Spark
   class AppBuilder < Rails::AppBuilder
-    include Yupi::Actions
+    include Spark::Actions
 
     def readme
       template 'README.md.erb', 'README.md'
@@ -163,7 +163,7 @@ module Yupi
     end
 
     def set_ruby_to_version_being_used
-      create_file '.ruby-version', "#{Yupi::RUBY_VERSION}\n"
+      create_file '.ruby-version', "#{Spark::RUBY_VERSION}\n"
     end
 
     def enable_database_cleaner

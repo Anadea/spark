@@ -3,12 +3,12 @@ require 'bundler/setup'
 
 Bundler.require(:default, :test)
 
-require (Pathname.new(__FILE__).dirname + '../lib/yupi').expand_path
+require (Pathname.new(__FILE__).dirname + '../lib/spark').expand_path
 
 Dir['./spec/support/**/*.rb'].each { |file| require file }
 
 RSpec.configure do |config|
-  config.include YupiTestHelpers
+  config.include TestHelpers
 
   config.filter_run :focus
   config.run_all_when_everything_filtered = true

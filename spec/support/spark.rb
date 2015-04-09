@@ -1,4 +1,4 @@
-module YupiTestHelpers
+module TestHelpers
   APP_NAME = "dummy_app"
 
   def remove_project_directory
@@ -10,12 +10,12 @@ module YupiTestHelpers
     FileUtils.mkdir_p(tmp_path)
   end
 
-  def run_yupi(arguments = nil)
+  def run_generator(arguments = nil)
     Dir.chdir(tmp_path) do
       Bundler.with_clean_env do
         ENV['TESTING'] = '1'
 
-        %x(#{yupi_bin} #{APP_NAME} #{arguments})
+        %x(#{generator_bin} #{APP_NAME} #{arguments})
         fail 'Application generation failed' unless $?.exitstatus == 0
       end
     end
@@ -41,8 +41,8 @@ module YupiTestHelpers
     @tmp_path ||= Pathname.new("#{root_path}/tmp")
   end
 
-  def yupi_bin
-    File.join(root_path, 'bin', 'yupi')
+  def generator_bin
+    File.join(root_path, 'bin', 'spark')
   end
 
   def root_path

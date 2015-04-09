@@ -1,13 +1,10 @@
 require 'rails/generators'
 require 'rails/generators/rails/app/app_generator'
 
-module Yupi
+module Spark
   class AppGenerator < Rails::Generators::AppGenerator
     class_option :database, type: :string, aliases: "-d", default: "postgresql",
       desc: "Configure for selected database (options: #{DATABASES.join("/")})"
-
-    class_option :heroku_flags, type: :string, default: "",
-      desc: "Set extra Heroku flags"
 
     class_option :skip_test_unit, type: :boolean, aliases: "-T", default: true,
       desc: "Skip Test::Unit files"
@@ -19,15 +16,15 @@ module Yupi
       desc: "Don't run bundle install"
 
     def finish_template
-      invoke :yupi_customization
+      invoke :spark_customization
       super
       invoke :run_bin_setup
     end
 
-    def yupi_customization
+    def spark_customization
       invoke :customize_gemfile
       invoke :setup_secret_token
-      invoke :create_yupi_views
+      invoke :create_spark_views
       invoke :configure_app
       invoke :setup_development_environment
       invoke :setup_test_environment
@@ -103,8 +100,8 @@ module Yupi
       build :setup_secret_token
     end
 
-    def create_yupi_views
-      say 'Creating yupi views'
+    def create_spark_views
+      say 'Creating spark views'
       build :create_partials
       build :create_application_layout
       build :create_home_page
@@ -130,7 +127,7 @@ module Yupi
       build :setup_stylesheets
       build :setup_javascripts
     end
-    
+
     def configure_mail_interceptor
       say 'Configure mail interceptor'
       build :configure_mail_interceptor
@@ -197,7 +194,7 @@ module Yupi
     protected
 
     def get_builder_class
-      Yupi::AppBuilder
+      Spark::AppBuilder
     end
 
     def using_active_record?
