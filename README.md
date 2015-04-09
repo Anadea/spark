@@ -71,6 +71,7 @@ Testing gems:
   HTML forms.
 * [RSpec](https://github.com/rspec/rspec) for unit testing.
 * [RSpec Mocks](https://github.com/rspec/rspec-mocks) for stubbing and spying.
+* [SimpleCov](https://github.com/colszowka/simplecov) for code coverage.
 * [Shoulda Matchers](https://github.com/thoughtbot/shoulda-matchers) for common
   RSpec matchers.
 * [Timecop](https://github.com/jtrupiano/timecop-console) for testing time.
