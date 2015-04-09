@@ -26,6 +26,8 @@ Application gems:
 * [Coffee Rails](https://github.com/rails/coffee-rails) as a Rails default.
 * [Email Validator](https://github.com/balexand/email_validator) for email
   validation.
+* [Exception Notification](https://github.com/smartinez87/exception_notification)
+  for email reporting runtime errors.
 * [Figaro](https://github.com/laserlemon/figaro) for application configuration.
 * [Haml Rails](https://github.com/indirect/haml-rails) for templates.
 * [High Voltage](https://github.com/thoughtbot/high_voltage) for static pages.

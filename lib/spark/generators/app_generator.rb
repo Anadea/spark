@@ -84,6 +84,7 @@ module Spark
 
     def setup_production_environment
       say 'Setting up the production environment'
+      build :configure_exception_notification
       build :configure_smtp
       build :enable_rack_deflater
       build :setup_asset_host

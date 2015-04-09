@@ -39,6 +39,17 @@ RSpec.feature 'Build a new project with default configuration' do
     expect(File).to exist("#{project_path}/spec/support/i18n.rb")
   end
 
+  scenario 'exception notification reads mail address from ENV' do
+    run_generator
+
+    exception_notification_file =
+      IO.read("#{project_path}/config/initializers/exception_notification.rb")
+
+    expect(exception_notification_file).to match(
+      /exception_recipients: ENV\["MAIL_ERRORS_TO"\]/
+    )
+  end
+
   scenario 'records pageviews through Google Analytics if ENV variable set' do
     run_generator
 

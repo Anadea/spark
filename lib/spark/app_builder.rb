@@ -64,6 +64,11 @@ module Spark
       copy_file 'spec/support/factory_girl_rspec.rb', 'spec/support/factory_girl.rb'
     end
 
+    def configure_exception_notification
+      template 'config/initializers/exception_notification.rb.erb',
+        'config/initializers/exception_notification.rb'
+    end
+
     def configure_mailsocio
       config = <<-RUBY
 
