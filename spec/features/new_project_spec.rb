@@ -87,12 +87,6 @@ RSpec.feature 'Build a new project with default configuration' do
     expect(File).to exist("#{project_path}/spec/i18n_spec.rb")
   end
 
-  scenario "config file for i18n tasks" do
-    run_generator
-
-    expect(File).to exist("#{project_path}/config/i18n-tasks.yml")
-  end
-
   scenario "generated en.yml is evaluated" do
     run_generator
 
