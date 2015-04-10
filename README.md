@@ -1,9 +1,6 @@
 # Spark
 
-Искра – генератор Ruby on Rails приложений с учётом лучшего опыта
-[Anadea](http://anadea.info).
-
-  ![Spark](https://dl.dropboxusercontent.com/u/8790751/spark.jpg)
+Генератор Ruby on Rails приложений для [быстрого старта проектов](https://anahoret.com/wiki/Anahoret/AnadeaSpark).
 
 ## Установка
 
@@ -15,12 +12,9 @@
 
     spark projectname
 
-Это создаст Rails-приложение `projectname` с использованием последней одобренной
-версии Rails.
+Будет создано Rails-приложение `projectname` с использованием последней стабильной версии Rails.
 
-## Что даёт искра
-
-Гемы для приложения:
+## Гемы для приложения
 
 * [Bootstrap](https://github.com/twbs/bootstrap-sass) для стандартного внешнего
   вида и вёрстки по сетке.
@@ -56,7 +50,7 @@
   страниц в файлах перевода i18n.
 * [Uglifier](https://github.com/lautis/uglifier) как дефолт Рельсов.
 
-Гемы для разработки:
+## Гемы для разработки
 
 * [Bundler Audit](https://github.com/rubysec/bundler-audit) для проверки
   `Gemfile` на предмет наличия в использованных гемах опубликованных уязвимостей
@@ -71,7 +65,7 @@
 * [Web Console](https://github.com/rails/web-console) для удобной REPL отладки
   в браузере.  
 
-Testing gems:
+## Гемы для тестирования
 
 * [Capybara](https://github.com/jnicklas/capybara) и
   [Poltergeist](https://github.com/teampoltergeist/poltergeist) для
@@ -84,20 +78,19 @@ Testing gems:
 * [SimpleCov](https://github.com/colszowka/simplecov) для измерения покрытия
   кода. Работает при передаче переменной окружения COVERAGE.
 * [Timecop](https://github.com/jtrupiano/timecop-console) для тестирования с
-  учётом времени..
+  учётом времени.
 * [Webmock](https://github.com/bblimke/webmock) для тестирования внешних HTTP
   запросов. Сконфигурирован запрещать любые запросы, за пределами localhost.
 
-Tweaks and goodies:
+## Прочие настройки
 
-* [`./bin/setup`][setup] скрипт для лёгкого старта новыми разработчиками.
-  Запускается внутри Искры как последний шаг генерации.
+* В приложении создаётся скрипт `bin/setup` для лёгкого старта новыми разработчиками.
 * Макет (layout) приложения с флеш-сообщениями, навигацией и подвалом, сделанный
   под twitter bootstrap.
-* Готовый шаблон для landing page – заходи и меняй.
+* Готовый шаблон для home page – заходи и меняй.
 * Несколько удобных форматов даты и времени для локализации.
 * `Rack::Deflater` для [сжатия HTTP ответов с помощью Gzip][compress].
-* [Маленький пул соединений с базой данных][pool].
+* [Уменьшен размер пула соединений с базой данных][pool].
 * `t()` и `l()` хелперы в тестах, чтобы вызывать их без префиксов.
 * Переменная окружения `SECRET_KEY_BASE` используется во всех окружениях.
 * Google analytics установлен и настроен. Работает при передаче переменной
@@ -114,7 +107,6 @@ Tweaks and goodies:
 * Добавлен `.ruby-version`, понимаемый большинством менеджеров версий Руби.
 * Контент `config/routes.rb`, состоящий из большого комментария, удалён.
 
-[setup]: http://robots.thoughtbot.com/bin-setup
 [compress]: http://robots.thoughtbot.com/content-compression-with-rack-deflater/
 [pool]: https://devcenter.heroku.com/articles/concurrency-and-database-connections
 [rails12factor]: https://github.com/heroku/rails_12factor
@@ -123,43 +115,13 @@ Tweaks and goodies:
 
 ## Зависимости
 
-Последняя одобренная [версия Руби](.ruby-version). Вы же начинаете новый проект,
-так поставьте новый Руби.
+Последняя стабильная [версия Руби](.ruby-version). 
 
-Некоторые гемы, от которых зависит ваше новое Rails приложение, требуют от
-системы возможность скопмилировать код на C(++). На вашей машине должен быть
-установлен GCC, прежде, чем вы сможете зажечь приложение Искрой.
+Некоторые гемы, от которых зависит созданное Rails приложение, требуют от системы возможность скопмилировать код на C(++).
+Для этого на машине должен быть установлен GCC. 
+Используйте [Command Line Tools for XCode](https://developer.apple.com/downloads/index.action) для Lion (OS X 10.7) и новее.
 
-Используйте
-[Command Line Tools for XCode](https://developer.apple.com/downloads/index.action)
-для Lion (OS X 10.7) и новее.
+Для интеграционного тестирования с Джаваскриптом используется [Poltergeist](https://github.com/teampoltergeist/poltergeist),
+для сборки которого потребуется [установленный PhantomJS](https://github.com/teampoltergeist/poltergeist#installing-phantomjs).
 
-Мы используем [Poltergeist](https://github.com/teampoltergeist/poltergeist) для
-интеграционного тестирования с Джаваскриптом. Он требует PhantomJS. Инструкции по
-установке
-[здесь](https://github.com/teampoltergeist/poltergeist#installing-phantomjs).
-
-Для успешного выполнения задачи `rake db:create`, вам нужен установленный и
-запущенный Postgresql.
-
-## Лицензия
-
-Copyright © 2015 Anadea.
-Это беспланое програмное обеспечение и его можно использовать, как это описано в
-файле [GPL v3 лицензии][LICENSE].
-
-[LICENSE]: LICENSE
-
-## Благодарности
-
-Гему [suspenders](https://github.com/thoughtbot/suspenders).
-
-## О нас
-
-![anadea](https://avatars2.githubusercontent.com/u/4539766?v=3&s=200)
-
-Искра создана и поддерживается Anadea, inc.
-
-К нам можно [устроиться на работу или заказать у нас проект][hire].
-
-[hire]: https://anadea.info/en?utm_source=github
+Для успешного выполнения задачи `rake db:create` нужен установленный и запущенный Postgresql.
