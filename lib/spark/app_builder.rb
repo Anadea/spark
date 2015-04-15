@@ -164,7 +164,7 @@ module Spark
     end
 
     def set_ruby_to_version_being_used
-      create_file '.ruby-version', "#{Spark::RUBY_VERSION}\n"
+      create_file '.ruby-version', "#{::RUBY_VERSION}\n"
     end
 
     def enable_database_cleaner
