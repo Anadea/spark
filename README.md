@@ -26,8 +26,6 @@
   `MAIL_ERRORS_TO`, задающей список адресов для уведомления через запятую.
 * [Figaro](https://github.com/laserlemon/figaro) для конфигурации приложения
   через переменные окружения.
-* [Haml Rails](https://github.com/indirect/haml-rails) для структурированных
-  шаблонов.
 * [High Voltage](https://github.com/thoughtbot/high_voltage) отображения
   домашней страницы и других страниц, не требующих кастомного контроллера.
 * [Jquery Rails](https://github.com/rails/jquery-rails) для JQuery как дефолт

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+    <meta charset="utf-8"/>
+    <meta content="NOODP" name="ROBOTS"/>
+    <meta content="initial-scale=1" name="viewport"/>
+    <title><%= app_name.humanize %></title>
+    <%%= stylesheet_link_tag :application, media: "all" %>
+    <%%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div id="wrap">
+      <header>
+        <%%= render 'navigation' %>
+      </header>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6 col-sm-offset-3 text-center">
+            <%%= render 'flashes' %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <%%= yield %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%%= render 'footer' %>
+    <%%= render 'javascript' %>
+  </body>
+</html>
