@@ -28,8 +28,8 @@
   через переменные окружения.
 * [Haml Rails](https://github.com/indirect/haml-rails) для структурированных
   шаблонов.
-* [High Voltage](https://github.com/thoughtbot/high_voltage) для статических
-  страничек.
+* [High Voltage](https://github.com/thoughtbot/high_voltage) отображения
+  домашней страницы и других страниц, не требующих кастомного контроллера.
 * [Jquery Rails](https://github.com/rails/jquery-rails) для JQuery как дефолт
   Рельсов.
 * [Postgres](https://github.com/ged/ruby-pg) для доступа к базе данных Postgres.
