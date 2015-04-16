@@ -38,8 +38,6 @@
 * [Sass Rails](https://github.com/rails/sass-rails) как дефолт Рельсов.
 * [Simple Form](https://github.com/plataformatec/simple_form) для разметки и
   стиллизации форм. Инициализатор сгенерирован для twitter bootstrap.
-* [Title](https://github.com/calebthompson/title) для удобного задания тайтлов
-  страниц в файлах перевода i18n.
 * [Uglifier](https://github.com/lautis/uglifier) как дефолт Рельсов.
 
 ## Гемы для разработки

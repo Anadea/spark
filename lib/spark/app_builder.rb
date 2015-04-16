@@ -131,8 +131,8 @@ module Spark
 
     def create_application_layout
       remove_file 'app/views/layouts/application.html.erb'
-      copy_file 'views/layouts/application.html.haml',
-        'app/views/layouts/application.html.haml'
+      template 'views/layouts/application.html.haml.erb',
+        'app/views/layouts/application.html.haml', force: true
     end
 
     def use_postgres_config_template
