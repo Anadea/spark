@@ -35,10 +35,6 @@
 * [Postgres](https://github.com/ged/ruby-pg) для доступа к базе данных Postgres.
 * [Thin](https://github.com/macournoyer/thin) как руби-сервер в разработке и в
   первоначальном продакшене.
-* [Recipient Interceptor](https://github.com/croaky/recipient_interceptor) чтобы
-  избежать случайной отправки почты реальным адресатам со стейджинга. Включается
-  при наличии переменной окружения `EMAIL_RECIPIENTS`, задающей адрес, которым
-  будет заменено поле `to` любого отправляемого письма.
 * [Sass Rails](https://github.com/rails/sass-rails) как дефолт Рельсов.
 * [Simple Form](https://github.com/plataformatec/simple_form) для разметки и
   стиллизации форм. Инициализатор сгенерирован для twitter bootstrap.

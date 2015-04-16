@@ -30,7 +30,6 @@ module Spark
       invoke :setup_test_environment
       invoke :setup_production_environment
       invoke :setup_assets
-      invoke :configure_mail_interceptor
       invoke :copy_miscellaneous_files
       invoke :customize_error_pages
       invoke :remove_routes_comment_lines
@@ -121,11 +120,6 @@ module Spark
       say 'Set up assets'
       build :setup_stylesheets
       build :setup_javascripts
-    end
-
-    def configure_mail_interceptor
-      say 'Configure mail interceptor'
-      build :configure_mail_interceptor
     end
 
     def setup_git

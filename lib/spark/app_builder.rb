@@ -192,11 +192,6 @@ module Spark
       template "config/locales_en.yml.erb", "config/locales/en.yml"
     end
 
-    def configure_mail_interceptor
-      copy_file 'config/initializers/mail_interceptor.rb',
-        'config/initializers/mail_interceptor.rb'
-    end
-
     def configure_simple_form
       # Here we suppress simple_form warning that simple_form hasn't been configured
       bundle_command "exec rails generate simple_form:install --bootstrap > /dev/null 2>&1"
