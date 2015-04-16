@@ -11,7 +11,7 @@ RSpec.feature 'Build a new project with default configuration' do
     end
   end
 
-  scenario 'generated .ruby-version is pulled from gem .ruby-version' do
+  scenario 'generated .ruby-version is pulled from interpreter' do
     run_generator
 
     ruby_version_file = IO.read("#{project_path}/.ruby-version")
@@ -46,11 +46,13 @@ RSpec.feature 'Build a new project with default configuration' do
 
   scenario 'records pageviews through Google Analytics if ENV variable set' do
     run_generator
+    analytics_partial =
+      IO.read("#{project_path}/app/views/application/_analytics.html.erb")
 
     expect(analytics_partial).
-      to include(%{- if ENV.key?("GOOGLE_ANALYTICS_KEY")})
+      to include(%{<% if ENV.key?("GOOGLE_ANALYTICS_KEY") %>})
     expect(analytics_partial).
-      to include(%{_gaq.push(['_setAccount', '\#{ENV["GOOGLE_ANALYTICS_KEY"]}']);})
+      to include(%{_gaq.push(['_setAccount', '<%= ENV["GOOGLE_ANALYTICS_KEY"] %>']);})
   end
 
   scenario "raises on unpermitted parameters in all environments" do
@@ -75,19 +77,12 @@ RSpec.feature 'Build a new project with default configuration' do
     end
   end
 
-  scenario "specs for missing or unused translations" do
-    run_generator
-
-    expect(File).to exist("#{project_path}/spec/i18n_spec.rb")
-  end
-
   scenario "generated en.yml is evaluated" do
     run_generator
 
     locales_en_file = IO.read("#{project_path}/config/locales/en.yml")
-    app_name = TestHelpers::APP_NAME
 
-    expect(locales_en_file).to match(/application: #{app_name.humanize}/)
+    expect(locales_en_file).to match(/with_weekday/)
   end
 
   scenario "config simple_form" do
@@ -116,9 +111,5 @@ RSpec.feature 'Build a new project with default configuration' do
     expect(test_config).to match(
       /^ +config.active_job.queue_adapter = :inline$/
     )
-  end
-
-  def analytics_partial
-    IO.read("#{project_path}/app/views/application/_analytics.html.haml")
   end
 end
