@@ -18,7 +18,6 @@
 
 * [Bootstrap](https://github.com/twbs/bootstrap-sass) для стандартного внешнего
   вида и вёрстки по сетке.
-* [Coffee Rails](https://github.com/rails/coffee-rails) как дефолт Рельсов.
 * [Email Validator](https://github.com/balexand/email_validator) для валидации
   адреса электронной почты.
 * [Exception Notification](https://github.com/smartinez87/exception_notification)
