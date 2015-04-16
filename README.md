@@ -33,8 +33,8 @@
 * [Jquery Rails](https://github.com/rails/jquery-rails) для JQuery как дефолт
   Рельсов.
 * [Postgres](https://github.com/ged/ruby-pg) для доступа к базе данных Postgres.
-* [Puma](https://github.com/puma/puma) как руби-сервер в разработке и в
-  продакшене.
+* [Thin](https://github.com/macournoyer/thin) как руби-сервер в разработке и в
+  первоначальном продакшене.
 * [Rack Timeout](https://github.com/heroku/rack-timeout) чтобы отменять слишком
   длинные запросы. Включается при наличии переменной окружения `RACK_TIMEOUT`,
   задаваемой в секундах.

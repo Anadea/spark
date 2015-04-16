@@ -232,11 +232,6 @@ module Spark
       generate 'rspec:install'
     end
 
-    def configure_puma
-      bundle_command 'binstub puma'
-      remove_file 'bin/pumactl'
-    end
-
     def setup_foreman
       copy_file 'Procfile', 'Procfile'
     end
