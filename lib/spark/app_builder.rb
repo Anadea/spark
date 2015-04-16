@@ -192,11 +192,6 @@ module Spark
       template "config/locales_en.yml.erb", "config/locales/en.yml"
     end
 
-    def configure_rack_timeout
-      copy_file 'config/initializers/rack_timeout.rb',
-        'config/initializers/rack_timeout.rb'
-    end
-
     def configure_mail_interceptor
       copy_file 'config/initializers/mail_interceptor.rb',
         'config/initializers/mail_interceptor.rb'

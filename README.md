@@ -35,9 +35,6 @@
 * [Postgres](https://github.com/ged/ruby-pg) для доступа к базе данных Postgres.
 * [Thin](https://github.com/macournoyer/thin) как руби-сервер в разработке и в
   первоначальном продакшене.
-* [Rack Timeout](https://github.com/heroku/rack-timeout) чтобы отменять слишком
-  длинные запросы. Включается при наличии переменной окружения `RACK_TIMEOUT`,
-  задаваемой в секундах.
 * [Recipient Interceptor](https://github.com/croaky/recipient_interceptor) чтобы
   избежать случайной отправки почты реальным адресатам со стейджинга. Включается
   при наличии переменной окружения `EMAIL_RECIPIENTS`, задающей адрес, которым
