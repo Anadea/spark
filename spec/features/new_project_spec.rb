@@ -33,12 +33,6 @@ RSpec.feature 'Build a new project with default configuration' do
     expect(File).to exist("#{project_path}/spec/support/action_mailer.rb")
   end
 
-  scenario "i18n support file is added" do
-    run_generator
-
-    expect(File).to exist("#{project_path}/spec/support/i18n.rb")
-  end
-
   scenario 'exception notification reads mail address from ENV' do
     run_generator
 
