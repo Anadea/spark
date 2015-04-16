@@ -86,9 +86,9 @@
 * В приложении создаётся скрипт `bin/setup` для лёгкого старта новыми разработчиками.
 * Макет (layout) приложения с флеш-сообщениями, навигацией и подвалом, сделанный
   под twitter bootstrap.
+* Удалён гем `coffee-rails`, так как Coffeescript признан плохой практикой.
 * Готовый шаблон для home page – заходи и меняй.
 * Несколько удобных форматов даты и времени для локализации.
-* `Rack::Deflater` для [сжатия HTTP ответов с помощью Gzip][compress].
 * [Уменьшен размер пула соединений с базой данных][pool].
 * `t()` и `l()` хелперы в тестах, чтобы вызывать их без префиксов.
 * Переменная окружения `SECRET_KEY_BASE` используется во всех окружениях.
@@ -106,7 +106,6 @@
 * Добавлен `.ruby-version`, понимаемый большинством менеджеров версий Руби.
 * Контент `config/routes.rb`, состоящий из большого комментария, удалён.
 
-[compress]: http://robots.thoughtbot.com/content-compression-with-rack-deflater/
 [pool]: https://devcenter.heroku.com/articles/concurrency-and-database-connections
 [rails12factor]: https://github.com/heroku/rails_12factor
 [mailcatcher]: http://mailcatcher.me/

@@ -83,20 +83,6 @@ module Spark
         :after => 'config.action_mailer.raise_delivery_errors = false'
     end
 
-    def enable_rack_deflater
-      config = <<-RUBY
-
-  # Enable deflate / gzip compression of controller-generated responses
-  config.middleware.use Rack::Deflater
-      RUBY
-
-      inject_into_file(
-        "config/environments/production.rb",
-        config,
-        after: serve_static_files_line
-      )
-    end
-
     def setup_asset_host
       replace_in_file 'config/environments/production.rb',
         "# config.action_controller.asset_host = 'http://assets.example.com'",
