@@ -174,6 +174,14 @@ module Spark
       copy_file "spec/spec_helper.rb", "spec/spec_helper.rb"
     end
 
+    def configure_jasmine_rails
+      bundle_command "exec rails generate jasmine_rails:install"
+    end
+
+    def add_jasmine_spec_sample
+      copy_file "spec/javascripts/application.spec.js", "spec/javascripts/application.spec.js"
+    end
+
     def configure_i18n_for_missing_translations
       raise_on_missing_translations_in("development")
       raise_on_missing_translations_in("test")
