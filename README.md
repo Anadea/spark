@@ -63,6 +63,8 @@
   тестирования HTML форм.
 * [RSpec](https://github.com/rspec/rspec) для тестирования.
 * [RSpec Mocks](https://github.com/rspec/rspec-mocks) для стабов.
+* [jasmine-rails](https://github.com/searls/jasmine-rails) для юнит
+  тестирования JavaScript кода.
 * [SimpleCov](https://github.com/colszowka/simplecov) для измерения покрытия
   кода. Работает при передаче переменной окружения COVERAGE.
 * [Timecop](https://github.com/jtrupiano/timecop-console) для тестирования с

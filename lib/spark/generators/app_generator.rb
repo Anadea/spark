@@ -26,14 +26,14 @@ module Spark
       invoke :setup_secret_token
       invoke :create_spark_views
       invoke :configure_app
+      invoke :remove_routes_comment_lines
+      invoke :add_root_route
       invoke :setup_development_environment
       invoke :setup_test_environment
       invoke :setup_production_environment
       invoke :setup_assets
       invoke :copy_miscellaneous_files
       invoke :customize_error_pages
-      invoke :remove_routes_comment_lines
-      invoke :add_root_route
       invoke :setup_git
       invoke :setup_database
       invoke :setup_bundler_audit
@@ -77,6 +77,8 @@ module Spark
       build :enable_database_cleaner
       build :configure_spec_support_features
       build :configure_action_mailer_in_specs
+      build :configure_jasmine_rails
+      build :add_jasmine_spec_sample
     end
 
     def setup_production_environment
