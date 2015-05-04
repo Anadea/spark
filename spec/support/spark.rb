@@ -25,7 +25,7 @@ module TestHelpers
     if File.exist?(project_path)
       Dir.chdir(project_path) do
         Bundler.with_clean_env do
-          `rake db:drop`
+          %x(rake db:drop)
         end
       end
     end
