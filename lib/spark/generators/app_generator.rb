@@ -184,6 +184,26 @@ module Spark
 
     protected
 
+    def db_host
+      db_info.host
+    end
+
+    def db_port
+      db_info.port
+    end
+
+    def db_username
+      db_info.user
+    end
+
+    def db_password
+      db_info.password
+    end
+
+    def db_info
+      URI.parse(ENV["GENERATED_DATABASE_URL"]) || OpenStruct.new
+    end
+
     def get_builder_class
       Spark::AppBuilder
     end

@@ -2,7 +2,10 @@ development: &default
   adapter: postgresql
   database: <%= app_name %>_development
   encoding: utf8
-  host: localhost
+  host: <%= db_host %>
+  <%= "port: #{db_port}" if db_port %>
+  <%= "username: #{db_username}" if db_username %>
+  <%= "password: #{db_password}" if db_password %>
   min_messages: warning
   pool: 2
   timeout: 5000
