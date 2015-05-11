@@ -1,3 +1,4 @@
+require 'ostruct'
 require 'rails/generators'
 require 'rails/generators/rails/app/app_generator'
 
@@ -114,6 +115,7 @@ module Spark
       build :configure_simple_form
       build :disable_xml_params
       build :fix_i18n_deprecation_warning
+      build :configure_locales_load_from_folders
       build :setup_default_rake_task
       build :setup_foreman
     end
@@ -201,7 +203,11 @@ module Spark
     end
 
     def db_info
-      URI.parse(ENV["GENERATED_DATABASE_URL"]) || OpenStruct.new
+      if ENV.key?("GENERATED_DATABASE_URL")
+        URI.parse(ENV["GENERATED_DATABASE_URL"])
+      else
+        OpenStruct.new
+      end
     end
 
     def get_builder_class

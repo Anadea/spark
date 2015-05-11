@@ -197,7 +197,7 @@ module Spark
 
     def configure_time_formats
       remove_file "config/locales/en.yml"
-      template "config/locales_en.yml.erb", "config/locales/en.yml"
+      template "config/locales/en/formats.yml.erb", "config/locales/en/formats.yml"
     end
 
     def configure_simple_form
@@ -226,6 +226,15 @@ module Spark
       inject_into_class 'config/application.rb', 'Application', config
     end
 
+    def configure_locales_load_from_folders
+      config = <<-RUBY
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
+      RUBY
+
+      gsub_file 'config/application.rb', /config\.i18n\.load_path.+/, config
+      uncomment_lines 'config/application.rb', /config\.i18n\.load_path/
+    end
+
     def generate_rspec
       generate 'rspec:install'
     end
@@ -240,8 +249,8 @@ module Spark
 
     def setup_stylesheets
       remove_file 'app/assets/stylesheets/application.css'
-      copy_file 'assets/application.css.scss',
-        'app/assets/stylesheets/application.css.scss'
+      copy_file 'assets/application.scss',
+        'app/assets/stylesheets/application.scss'
     end
 
     def setup_javascripts
