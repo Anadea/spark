@@ -80,7 +80,7 @@ RSpec.feature 'Build a new project with default configuration' do
   scenario "generated en.yml is evaluated" do
     run_generator
 
-    locales_en_file = IO.read("#{project_path}/config/locales/en.yml")
+    locales_en_file = IO.read("#{project_path}/config/locales/en/formats.yml")
 
     expect(locales_en_file).to match(/with_weekday/)
   end
