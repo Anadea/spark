@@ -12,6 +12,10 @@ module Features
 end
 
 RSpec.configure do |config|
+  Capybara.default_host = 'localhost'
+  Capybara.server_port = 9887
+  Capybara.app_host = "http://#{Capybara.default_host}:#{Capybara.server_port}"
+
   config.include Features, type: :feature
   config.infer_base_class_for_anonymous_controllers = false
   config.infer_spec_type_from_file_location!
