@@ -110,6 +110,8 @@ module Spark
     def create_partials
       empty_directory 'app/views/application'
 
+      copy_file 'views/application/_stylesheet.html.erb',
+        'app/views/application/_stylesheet.html.erb'
       copy_file 'views/application/_flashes.html.erb',
         'app/views/application/_flashes.html.erb'
       copy_file 'views/application/_javascript.html.erb',
@@ -251,6 +253,8 @@ module Spark
       remove_file 'app/assets/stylesheets/application.css'
       copy_file 'assets/application.scss',
         'app/assets/stylesheets/application.scss'
+      copy_file 'assets/disable_animation.scss',
+        'vendor/assets/stylesheets/disable_animation.scss'
     end
 
     def setup_javascripts
