@@ -5,5 +5,7 @@
 # Exit if any subcommand fails
 set -e
 
+gem list -i bundler || gem install bundler --no-ri --no-rdoc
+
 # Set up Ruby dependencies via Bundler
 bundle install
