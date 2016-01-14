@@ -210,6 +210,9 @@ module Spark
     end
 
     def configure_active_job
+      configure_application_file(
+        "config.active_job.queue_adapter = :inline"
+      )
       configure_environment "test", "config.active_job.queue_adapter = :inline"
     end
 
