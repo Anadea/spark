@@ -105,9 +105,6 @@ RSpec.feature 'Build a new project with default configuration' do
     application_config = IO.read("#{project_path}/config/application.rb")
     test_config = IO.read("#{project_path}/config/environments/test.rb")
 
-    expect(application_config).to match(
-      /^ +config.active_job.queue_adapter = :delayed_job$/
-    )
     expect(test_config).to match(
       /^ +config.active_job.queue_adapter = :inline$/
     )

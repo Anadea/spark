@@ -189,10 +189,6 @@ module Spark
       raise_on_missing_translations_in("test")
     end
 
-    def configure_background_jobs_for_rspec
-      run 'rails g delayed_job:active_record'
-    end
-
     def configure_action_mailer_in_specs
       copy_file 'spec/support/action_mailer.rb', 'spec/support/action_mailer.rb'
     end
@@ -214,9 +210,6 @@ module Spark
     end
 
     def configure_active_job
-      configure_application_file(
-        "config.active_job.queue_adapter = :delayed_job"
-      )
       configure_environment "test", "config.active_job.queue_adapter = :inline"
     end
 
