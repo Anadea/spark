@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 ruby "<%= ::RUBY_VERSION %>"
 
-gem "bootstrap-sass", "~> 3.3.4"
+gem "bootstrap-sass"
 gem "email_validator"
 gem "exception_notification"
 gem "figaro"
@@ -10,7 +10,7 @@ gem "high_voltage"
 gem "jquery-rails"
 gem "pg"
 gem "rails", "<%= Spark::RAILS_VERSION %>"
-gem "sass-rails", "~> 5.0"
+gem "sass-rails"
 gem "simple_form"
 gem "thin"
 gem "uglifier"
@@ -26,8 +26,9 @@ group :development, :test do
   gem "bundler-audit", require: false
   gem "byebug"
   gem "factory_girl_rails"
+  gem "listen"
   gem "pry-rails"
-  gem "rspec-rails", "~> 3.1.0"
+  gem "rspec-rails"
   gem "jasmine-rails"
 end
 

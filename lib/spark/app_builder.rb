@@ -301,11 +301,6 @@ module Spark
       route "root 'high_voltage/pages#show', id: 'home'"
     end
 
-    def disable_xml_params
-      copy_file 'config/initializers/disable_xml_params.rb',
-        'config/initializers/disable_xml_params.rb'
-    end
-
     def setup_default_rake_task
       append_file 'Rakefile' do
         <<-EOS
